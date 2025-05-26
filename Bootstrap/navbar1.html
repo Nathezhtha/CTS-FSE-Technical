@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabbed Navigation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab">Profile</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" role="tab">Contact</button>
+    </li>
+  </ul>
+
+  <div class="tab-content p-3 border border-top-0" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel">
+      <p>This is the Home tab content.</p>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel">
+      <p>This is the Profile tab content.</p>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel">
+      <p>This is the Contact tab content.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
