@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 6</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 300px;
+            height: 100px;
+            background-color: lightgray;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">Hover, Click, or Double Click Me</div>
+    <input type="text" id="inputField" placeholder="Type something...">
+
+    <script>
+        $(document).ready(function () {
+            $("#box").click(function () {
+                $(this).css("background-color", "yellow");
+            });
+
+            $("#box").dblclick(function () {
+                $(this).css("background-color", "orange");
+            });
+
+            $("#box").mouseenter(function () {
+                $(this).css("border", "3px solid blue");
+            });
+
+            $("#box").mouseleave(function () {
+                $(this).css("border", "none");
+            });
+
+            $("#inputField").keypress(function () {
+                alert("Key pressed!");
+            });
+        });
+    </script>
+</body>
+</html>

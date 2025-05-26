@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Heading</h1>
+    <p>Paragraph One</p>
+    <p>Paragraph Two</p>
+    <button>Hide One Paragraph</button>
+
+    <script>
+        $(document).ready(function () {
+            $("h1").text("Updated Heading");
+            $("button").click(function () {
+                $("p:first").hide();
+            });
+        });
+    </script>
+</body>
+</html>
+

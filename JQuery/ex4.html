@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 4</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <input type="text" id="itemInput">
+    <button id="addBtn">Add Item</button>
+    <button id="removeBtn">Remove All</button>
+    <ul id="itemList"></ul>
+
+    <script>
+        $(document).ready(function () {
+            $("#addBtn").click(function () {
+                let value = $("#itemInput").val();
+                if (value) {
+                    $("#itemList").append("<li>" + value + "</li>");
+                    $("#itemInput").val("");
+                }
+            });
+
+            $("#removeBtn").click(function () {
+                $("#itemList").empty();
+            });
+        });
+    </script>
+</body>
+</html>
