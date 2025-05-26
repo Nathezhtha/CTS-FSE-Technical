@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Event Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .event-card {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input, select, button {
+      padding: 8px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #events {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upcoming Events</h1>
+  <div id="events">Loading...</div>
+
+  <form id="registrationForm">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <select name="event" required></select>
+    <button type="submit">Register</button>
+  </form>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
