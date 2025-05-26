@@ -1,0 +1,110 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f7f9fb;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Navigation */
+.navMenu {
+  background: #004d40;
+  padding: 10px;
+  text-align: center;
+}
+.navMenu a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+.navMenu a:hover {
+  text-decoration: underline;
+}
+
+/* Welcome Banner */
+#welcomeBanner {
+  background: #e0f7fa;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Event Card */
+.eventCard {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* Highlight Class */
+.highlight {
+  color: #00796b;
+  font-weight: bold;
+}
+
+/* Gallery */
+.gallery-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border: 2px solid #ccc;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+td {
+  text-align: center;
+}
+
+/* Form Styling */
+form {
+  background: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+input, select, textarea {
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  width: 100%;
+}
+output {
+  display: block;
+  margin-top: 10px;
+}
+
+/* News Section */
+.news {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid #ccc;
+  padding: 15px;
+  background: #e8f5e9;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navMenu a {
+    display: block;
+    margin: 5px 0;
+  }
+  .gallery-img {
+    width: 100%;
+  }
+}

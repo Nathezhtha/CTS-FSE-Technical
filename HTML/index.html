@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Event Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navMenu">
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#register">Register</a>
+    <a href="#feedback">Feedback</a>
+    <a href="help.html" target="_blank">Help</a>
+  </nav>
+  <header id="home">
+    <div id="welcomeBanner">
+      <h1>Welcome to the City Event Portal</h1>
+      <p><span style="color:red; font-weight:bold;">Special Offer:</span> Register now for free tickets!</p>
+    </div>
+  </header>
+
+  <section id="events" class="eventCard">
+    <h2>Upcoming Events</h2>
+    <div>
+      <h3>Summer Music Fest</h3>
+      <p class="highlight">Downtown Park - June 20</p>
+    </div>
+    <div>
+      <h3>Community Clean-Up</h3>
+      <p class="highlight">Central Square - July 5</p>
+    </div>
+  </section>
+  <section id="gallery">
+    <h2>Past Event Highlights</h2>
+    <table>
+      <caption>Community Memories</caption>
+      <tr>
+        <td>
+          <img src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg" alt="Music Festival" title="Music Festival" class="gallery-img">
+        </td>
+        <td>
+          <img src="https://images.pexels.com/photos/356133/pexels-photo-356133.jpeg" alt="Art Exhibition" title="Art Exhibition" class="gallery-img">
+        </td>
+        <td>
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac" alt="Community Event" title="Community Event" class="gallery-img">
+        </td>
+      </tr>
+    </table>
+  </section>
+  <section id="register">
+    <h2>Register for an Event</h2>
+    <form id="registrationForm" onsubmit="return showConfirmation();">
+      <label>Name: <input type="text" name="name" required autofocus></label><br>
+      <label>Email: <input type="email" name="email" required></label><br>
+      <label>Phone: <input type="text" id="phone" onblur="validatePhone(this)"></label><br>
+      <label>Event:
+        <select id="eventType" onchange="storeEventType(this)">
+          <option value="music">Music Festival</option>
+          <option value="cleanup">Community Clean-Up</option>
+        </select>
+      </label><br>
+      <label>Message:<br><textarea onkeyup="countChars(this)"></textarea></label><br>
+      <output id="charCount">0 characters</output><br>
+      <input type="submit" value="Register">
+      <output id="confirmation"></output>
+    </form>
+    <button onclick="clearPreferences()">Clear Preferences</button>
+  </section>
+
+  <section>
+    <h2>Watch Event Promo</h2>
+    <video id="promoVideo" width="320" controls oncanplay="videoReadyMessage()">
+      <source src="promo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p id="videoMessage"></p>
+  </section>
+
+  <section>
+    <button onclick="findNearbyEvents()">Find Nearby Events</button>
+    <p id="locationOutput"></p>
+  </section>
+
+  <article class="news">
+    <p>Stay updated on local happenings, announcements, and feature stories from your community.</p>
+  </article>
+
+  <script>
+    function validatePhone(input) {
+      const phonePattern = /^\d{10}$/;
+      if (!phonePattern.test(input.value)) {
+        alert("Please enter a valid 10-digit phone number.");
+      }
+    }
+
+    function storeEventType(select) {
+      localStorage.setItem('eventType', select.value);
+    }
+
+    function showConfirmation() {
+      document.getElementById('confirmation').textContent = "Thanks for registering!";
+      return false;
+    }
+
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      alert("Preferences cleared.");
+    }
+
+    function videoReadyMessage() {
+      document.getElementById('videoMessage').textContent = "Video ready to play.";
+    }
+
+    function findNearbyEvents() {
+      if (!navigator.geolocation) {
+        document.getElementById('locationOutput').textContent = "Geolocation not supported.";
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          document.getElementById('locationOutput').textContent =
+            `Your coordinates: (${pos.coords.latitude}, ${pos.coords.longitude})`;
+        },
+        err => {
+          document.getElementById('locationOutput').textContent = `Error: ${err.message}`;
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+      );
+    }
+
+    function countChars(textarea) {
+      document.getElementById('charCount').textContent = `${textarea.value.length} characters`;
+    }
+  </script>
+</body>
+</html>
